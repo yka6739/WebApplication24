@@ -1,0 +1,29 @@
+﻿@page "/"
+@inject IRepository repository
+
+<h1>Welcome to this week....</h1>
+<div>
+    @foreach(var i in data)
+            {
+
+            
+    <p>Id is: <b>@i.Id</b></p>
+    <p>Name is: <b>@i.Name</b></p>
+    <p>Address is: <b>@i.Address</b></p>
+    }
+    
+</div>
+
+
+
+@code
+{
+     List<Data> data;
+    protected override void OnInitialized()
+    {
+        data = repository.GetData();        
+        
+    }
+}
+
+
